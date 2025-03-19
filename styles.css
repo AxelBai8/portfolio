@@ -1,11 +1,4 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-
-}
-
+/* Body background image */
 body {
   background-image: url('tokyo.jpg');
   background-size: cover;
@@ -15,22 +8,114 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#header{
-  width: 100%;
-  height: 100vh;
-  background-image: url('Axl.png');
-  background-size: cover;
-  background-position: center;
-  margin-left: 400px;
-}
-
-.container{
- padding: 10px 10;
-}
-
-nav{
+/* Container setup */
+.container {
   display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: flex-end; /* Align everything to the right */
+  padding: 10px 5%;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+/* Header image styles */
+.header-img {
+  width: 40%; /* Smaller image (40% of container width) */
+  max-width: 400px; /* Prevent it from getting too large */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure image covers the area */
+  cursor: pointer; /* Change cursor to pointer to show interactivity */
+  transition: transform 0.3s ease; /* Optional: smooth zoom-in effect */
+  z-index: 1; /* Make sure it's above the nav-wheel */
+}
+
+/* Hidden navigation (wheel) that appears on hover */
+.nav-wheel {
+  position: absolute;
+  top: 50%; /* Center the wheel vertically */
+  right: 80%; /* Position the wheel to the left of the image */
+  transform: translateY(-50%); /* Center vertically */
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 0; /* Initially hidden (width 0) */
+  height: 0; /* Initially hidden (height 0) */
+  overflow: hidden; /* Hide the overflowing items */
+  pointer-events: none; /* Make the nav-wheel non-interactive until hovered */
+  transition: width 0.5s, height 0.5s; /* Transition for showing the wheel */
+}
+
+/* Style the navigation links */
+.nav-wheel nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-wheel nav ul li {
+  margin: 0 15px; /* Space between nav items */
+  opacity: 0; /* Initially hide the links */
+  position: absolute; /* Absolute positioning for the wheel effect */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Animation for links */
+}
+
+/* On hover over the image, show the wheel and animate the items */
+.header-img:hover + .nav-wheel {
+  width: 250px; /* Expand the width of the wheel */
+  height: 250px; /* Expand the height of the wheel */
+  pointer-events: auto; /* Allow interaction */
+}
+
+.header-img:hover + .nav-wheel nav ul li {
+  opacity: 1; /* Make links visible */
+}
+
+/* Wheel animation: Distribute links in a circular pattern */
+.header-img:hover + .nav-wheel nav ul li:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(0deg) translateX(100px); /* Position first link */
+}
+
+.header-img:hover + .nav-wheel nav ul li:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(120deg) translateX(100px); /* Position second link */
+}
+
+.header-img:hover + .nav-wheel nav ul li:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(240deg) translateX(100px); /* Position third link */
+}
+
+/* Keep the nav wheel visible when hovering */
+.nav-wheel:hover {
+  width: 250px; /* Keep the wheel open */
+  height: 250px; /* Keep the wheel open */
+}
+
+/* Make the links visually look better */
+nav ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px 5%; /* Reduce padding on smaller screens */
+  }
+
+  /* Adjust wheel size for smaller screens */
+  .header-img:hover + .nav-wheel {
+    width: 200px; /* Smaller wheel on mobile */
+    height: 200px;
+  }
+
+  /* Adjust size and spacing of links for smaller screens */
+  .header-img:hover + .nav-wheel nav ul li {
+    font-size: 16px;
+    transform: translate(-50%, -50%) rotate(0deg) translateX(80px); /* Adjust position */
+  }
 }
