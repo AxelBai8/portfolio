@@ -1,0 +1,202 @@
+/* --- Basic Setup --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* Poppins font needs to be imported or available on the system */
+  /* font-family: "Poppins-Regular", Helvetica, Arial, sans-serif; */
+}
+
+.portfolio {
+  background-color: #8DDEFC;
+  display: flex; /* Use flex to center the main content div */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}
+
+.portfolio .div {
+  background-color: #CCD3F0; /* Can likely inherit, but keep for now */
+  /* Remove fixed width/height, let content or flexbox manage it */
+  /* width: 1920px; */
+  /* height: 1080px; */
+  position: relative; /* Needed for absolute positioning of children like text/icons if added back */
+  display: flex; /* Use flexbox here too to center the overlap group */
+  justify-content: center;
+  align-items: center;
+  /* Add some padding if needed */
+  padding: 20px;
+}
+
+/* --- Central Image Container --- */
+.portfolio .overlap-group {
+  position: relative; /* Changed from absolute. Acts as the container for centered images */
+  /* Remove fixed size/position */
+  /* width: 1779px; */
+  /* height: 783px; */
+  /* top: 226px; */
+  /* left: 18px; */
+
+  /* Define a size for this container area if needed, or let images define it */
+  /* Example size: Adjust as necessary */
+  width: 500px;
+  height: 500px;
+  display: flex; /* Helps if needed later, but absolute positioning inside handles it */
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Sharingan Image (Background) --- */
+.portfolio .axl { /* Corresponds to Sharingan.png */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* ADJUST SIZE AS NEEDED */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1; /* Lower layer */
+  opacity: 0.6; /
+}
+
+
+.portfolio .element { /* Corresponds to Axel.png */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  z-index: 2;
+  border: 4px solid rgba(248, 160, 177, 0.8);
+  box-shadow: 0 0 20px 5px rgba(248, 160, 177, 0.4);
+  padding: 100px;
+  object-fit: contain;
+}
+
+
+/* --- Temporarily Comment Out Other Elements --- */
+/* We hide these for now to focus on the images */
+/*
+.portfolio .ellipse,
+.portfolio .ellipse-2,
+.portfolio .ellipse-3,
+.portfolio .ellipse-4 {
+   display: none;
+}
+
+.portfolio .text-wrapper {
+   display: none;
+}
+
+.portfolio .text-wrapper-2 {
+   display: none;
+}
+
+.portfolio .social-icons {
+  display: none;
+}
+*/
+
+/* --- Keep these styles if .ellipse are used instead of Sharingan.png --- */
+/*
+.portfolio .ellipse {
+  position: absolute;
+  width: 707px;
+  height: 707px;
+  top: 15px;
+  left: 1072px;
+  border-radius: 353.5px;
+  border: 37px solid;
+  border-color: #e40036;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.portfolio .ellipse-2 {
+  position: absolute;
+  width: 707px;
+  height: 707px;
+  top: 28px;
+  left: 150px;
+  border-radius: 353.5px;
+  border: 37px solid;
+  border-color: #e40036;
+  filter: blur(40px);
+   z-index: 1;
+}
+
+.portfolio .ellipse-3 {
+  position: absolute;
+  width: 707px;
+  height: 707px;
+  top: 38px;
+  left: 628px;
+  border-radius: 353.5px;
+  border: 37px solid;
+  border-color: #e40036;
+  filter: blur(40px);
+   z-index: 1;
+}
+
+.portfolio .ellipse-4 {
+  position: absolute;
+  width: 783px;
+  height: 783px;
+  top: 0;
+  left: 590px;
+  border-radius: 391.5px;
+  border: 38px solid;
+  border-color: #feadbbd9;
+  box-shadow: 0px 4px 4px #00000040;
+   z-index: 5;
+}
+*/
+
+/* --- Keep these text/icon styles for later --- */
+/*
+.portfolio .text-wrapper {
+  position: absolute;
+  width: 334px;
+  height: 85px;
+  top: 691px; // These will need adjusting if parent isn't fixed size
+  left: 0;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+   z-index: 100;
+}
+
+.portfolio .text-wrapper-2 {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  top: 54px; // These will need adjusting
+  left: 1620px; // These will need adjusting
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #fcc2ce;
+  font-size: 40px;
+  text-align: right;
+  letter-spacing: 2.2px;
+  line-height: normal;
+   z-index: 100;
+}
+
+.portfolio .social-icons {
+  position: absolute;
+  width: 31px;
+  height: 34px;
+  top: 1013px; // These will need adjusting
+  left: 1666px; // These will need adjusting
+  // background-image: url(./img/group-2.png); // Check this path too
+  background-size: 100% 100%;
+   z-index: 100;
+}
+*/
