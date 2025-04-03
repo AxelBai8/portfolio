@@ -17,18 +17,6 @@ body, html {
   min-height: 100vh; /* Ensure it takes at least the full viewport height */
 }
 
-.portfolio .div {
-  background-color: #CCD3F0; /* Can likely inherit, but keep for now */
-  /* Remove fixed width/height, let content or flexbox manage it */
-  /* width: 1920px; */
-  /* height: 1080px; */
-  position: relative; /* Needed for absolute positioning of children like text/icons if added back */
-  display: flex; /* Use flexbox here too to center the overlap group */
-  justify-content: center;
-  align-items: center;
-  /* Add some padding if needed */
-  padding: 20px;
-}
 
 /* --- Central Image Container --- */
 .portfolio .overlap-group {
