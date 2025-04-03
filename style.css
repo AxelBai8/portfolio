@@ -1,11 +1,8 @@
-/* --- Basic Setup --- */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  /* Poppins font needs to be imported or available on the system */
-  /* font-family: "Poppins-Regular", Helvetica, Arial, sans-serif; */
 }
 
 .portfolio {
