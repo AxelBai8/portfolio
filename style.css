@@ -19,10 +19,8 @@ body, html {
 .portfolio .overlap-group {
   position: relative; /* Changed from absolute. Acts as the container for centered images */
   /* Remove fixed size/position */
-  /* width: 1779px; */
-  /* height: 783px; */
-  /* top: 226px; */
-  /* left: 18px; */
+  top: 200px;
+  left: 18px;
 
   /* Define a size for this container area if needed, or let images define it */
   /* Example size: Adjust as necessary */
