@@ -6,7 +6,9 @@ body, html {
 }
 
 .portfolio {
-  background-color: #fcc2ce;
+  /*background-color: #fcc2ce;*/
+  background-image: url('jp-back.jpg');
+  background-size: cover;
   display: flex; /* Use flex to center the main content div */
   justify-content: center;
   align-items: center;
