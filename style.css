@@ -1,184 +1,69 @@
-body, html {
+/* Reseteo básico y Box Sizing */
+* {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  box-sizing: border-box;
 }
 
-.portfolio {
-  background-image: url('pop.png');
-  background-repeat: no-repeat;
-  display: flex; /* Use flex to center the main content div */
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+/* Variables CSS para la paleta de colores SAO */
+:root {
+  --sao-dark-bg: #0a0f18;       /* Azul/negro muy oscuro para fondo */
+  --sao-panel-bg: rgba(20, 30, 50, 0.8); /* Azul oscuro semitransparente para ventanas */
+  --sao-border: #50a0d0;       /* Azul claro/medio para bordes y líneas */
+  --sao-text-light: #e0e8f0;   /* Color de texto principal (blanco azulado) */
+  --sao-text-secondary: #a0b0c0;/* Color de texto secundario (gris azulado) */
+  --sao-accent-teal: #40e0d0;   /* Turquesa/verde azulado para acentos */
+  --sao-accent-yellow: #f0e050; /* Amarillo para highlights (opcional) */
 }
 
-
-/* --- Central Image Container --- */
-.portfolio .overlap-group {
-  position: relative; /* Changed from absolute. Acts as the container for centered images */
-  /* Remove fixed size/position */
-  top: 200px;
-  left: 18px;
-
-  /* Define a size for this container area if needed, or let images define it */
-  /* Example size: Adjust as necessary */
-  width: 500px;
-  height: 500px;
-  display: flex; /* Helps if needed later, but absolute positioning inside handles it */
-  justify-content: center;
-  align-items: center;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente placeholder, cámbiala luego */
+  background-color: var(--sao-dark-bg);
+  color: var(--sao-text-light);
+  line-height: 1.6;
+  /* Podríamos añadir un fondo con gradiente o imagen sutil aquí */
 }
 
-/* --- Sharingan Image (Background) --- */
-.portfolio .axl { /* Corresponds to Sharingan.png */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px; /* ADJUST SIZE AS NEEDED */
-  height: auto; /* Maintain aspect ratio */
-  z-index: 1; /* Lower layer */
-  opacity: 0.6; /
+.main-container {
+  max-width: 1600px; /* Ancho máximo opcional */
+  margin: 0 auto; /* Centrar contenedor si tiene max-width */
+  /* Podríamos usar display: flex o grid para layout principal con el menú lateral */
 }
 
-
-.portfolio .element { /* Corresponds to Axel.png */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-  height: 460px;
-  object-fit: cover;
-  z-index: 2;
-  border: 4px solid rgba(248, 160, 177, 0.8);
-  box-shadow: 0 0 20px 5px rgba(248, 160, 177, 0.4);
-  object-fit: contain;
-  zoom: 100%;
+/* Estilos básicos para las secciones */
+.portfolio-section {
+  padding: 60px 20px; /* Espaciado vertical y horizontal */
+  min-height: 80vh; /* Altura mínima para llenar pantalla (ajustar) */
+  border-bottom: 1px solid rgba(80, 160, 208, 0.2); /* Línea divisoria sutil */
 }
 
-
-/* --- Temporarily Comment Out Other Elements --- */
-/* We hide these for now to focus on the images */
-
-.portfolio .ellipse,
-.portfolio .ellipse-2,
-.portfolio .ellipse-3,
-.portfolio .ellipse-4 {
-   display: none;
-}
-
-.portfolio .text-wrapper {
-   display: none;
-}
-
-.portfolio .text-wrapper-2 {
-   display: none;
-}
-
-.portfolio .social-icons {
-  display: none;
-}
-
-
-/* --- Keep these styles if .ellipse are used instead of Sharingan.png --- */
-
-.portfolio .ellipse {
-  position: absolute;
-  width: 707px;
-  height: 707px;
-  top: 15px;
-  left: 1072px;
-  border-radius: 353.5px;
-  border: 37px solid;
-  border-color: #e40036;
-  filter: blur(40px);
-  z-index: 1;
-}
-
-.portfolio .ellipse-2 {
-  position: absolute;
-  width: 707px;
-  height: 707px;
-  top: 28px;
-  left: 150px;
-  border-radius: 353.5px;
-  border: 37px solid;
-  border-color: #e40036;
-  filter: blur(40px);
-   z-index: 1;
-}
-
-.portfolio .ellipse-3 {
-  position: absolute;
-  width: 707px;
-  height: 707px;
-  top: 38px;
-  left: 628px;
-  border-radius: 353.5px;
-  border: 37px solid;
-  border-color: #e40036;
-  filter: blur(40px);
-   z-index: 1;
-}
-
-.portfolio .ellipse-4 {
-  position: absolute;
-  width: 783px;
-  height: 783px;
-  top: 0;
-  left: 590px;
-  border-radius: 391.5px;
-  border: 38px solid;
-  border-color: #feadbbd9;
-  box-shadow: 0px 4px 4px #00000040;
-   z-index: 5;
-}
-
-
-/* --- Keep these text/icon styles for later --- */
-
-.portfolio .text-wrapper {
-  position: absolute;
-  width: 334px;
-  height: 85px;
-  top: 691px;
-  left: 0;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 30px;
+.portfolio-section h2 {
+  color: var(--sao-accent-teal);
+  margin-bottom: 30px;
   text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-   z-index: 100;
+  font-size: 2.5em;
+  text-transform: uppercase; /* Estilo títulos SAO */
+  letter-spacing: 2px;
 }
 
-.portfolio .text-wrapper-2 {
-  position: absolute;
-  width: 250px;
-  height: 100px;
-  top: 54px;
-  left: 1620px;
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #fcc2ce;
-  font-size: 40px;
-  text-align: right;
-  letter-spacing: 2.2px;
-  line-height: normal;
-   z-index: 100;
+/* Contenedor estilo ventana SAO (placeholder) */
+.window-style-container {
+  background-color: var(--sao-panel-bg);
+  border: 1px solid var(--sao-border);
+  padding: 25px;
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+  max-width: 900px; /* Ancho máximo para contenedores de texto */
+  margin: 0 auto; /* Centrar contenedores */
+  backdrop-filter: blur(5px); /* Efecto vidrio (usar con cuidado) */
 }
 
-.portfolio .social-icons {
-  position: absolute;
-  width: 31px;
-  height: 34px;
-  top: 1013px;
-  left: 1666px;
-  background-size: 100% 100%;
-   z-index: 100;
+/* Estilos básicos para la Hero Section */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh; /* Que ocupe toda la pantalla inicial */
+  background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9)), url('tu-imagen-de-fondo.jpg') no-repeat center center/cover; /* Añade una imagen de fondo si quieres */
 }
