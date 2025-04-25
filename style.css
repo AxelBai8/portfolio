@@ -46,7 +46,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* Contenedor estilo ventana SAO (placeholder) */
 .window-style-container {
   background-color: var(--sao-panel-bg);
   border: 1px solid var(--sao-border);
