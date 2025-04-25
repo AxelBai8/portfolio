@@ -32,9 +32,9 @@ body {
 
 /* Estilos básicos para las secciones */
 .portfolio-section {
-  padding: 60px 20px; /* Espaciado vertical y horizontal */
-  min-height: 80vh; /* Altura mínima para llenar pantalla (ajustar) */
-  border-bottom: 1px solid rgba(80, 160, 208, 0.2); /* Línea divisoria sutil */
+  padding: 60px 20px;
+  min-height: 80vh;
+  border-bottom: 1px solid rgba(80, 160, 208, 0.2);
 }
 
 .portfolio-section h2 {
@@ -42,7 +42,7 @@ body {
   margin-bottom: 30px;
   text-align: center;
   font-size: 2.5em;
-  text-transform: uppercase; /* Estilo títulos SAO */
+  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -51,10 +51,10 @@ body {
   background-color: var(--sao-panel-bg);
   border: 1px solid var(--sao-border);
   padding: 25px;
-  border-radius: 5px; /* Bordes ligeramente redondeados */
-  max-width: 900px; /* Ancho máximo para contenedores de texto */
-  margin: 0 auto; /* Centrar contenedores */
-  backdrop-filter: blur(5px); /* Efecto vidrio (usar con cuidado) */
+  border-radius: 5px;
+  max-width: 900px;
+  margin: 0 auto;
+  backdrop-filter: blur(5px);
 }
 
 /* Estilos básicos para la Hero Section */
@@ -64,6 +64,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh; /* Que ocupe toda la pantalla inicial */
-  background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9)), url('tu-imagen-de-fondo.jpg') no-repeat center center/cover; /* Añade una imagen de fondo si quieres */
+  min-height: 100vh;
+  background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9)), url('.jpg') no-repeat center center/cover; /* Añade una imagen de fondo si quieres */
 }
