@@ -117,9 +117,3 @@ body {
   margin-bottom: 5px;
   font-size: 1.4em;
 }
-
-.quest-hover-hint {
-  font-size: 0.8em;
-  color: var(--sao-text-secondary);
-  font-style: italic;
-}
