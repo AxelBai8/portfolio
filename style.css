@@ -66,3 +66,60 @@ body {
   min-height: 100vh;
   background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9)), url('.jpg') no-repeat center center/cover; /* Añade una imagen de fondo si quieres */
 }
+/* ... (Estilos anteriores) ... */
+
+/* --- Estilos para Tarjetas de Proyecto (Quests) --- */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Aumentar un poco el espacio */
+}
+
+.quest-card {
+  background-color: var(--sao-panel-bg);
+  border: 1px solid var(--sao-border);
+  border-radius: 5px; /* Ajusta si prefieres bordes más nítidos */
+  position: relative; /* NECESARIO para el overlay absoluto */
+  overflow: hidden; /* Esconde partes del overlay que se salgan */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 250px; /* Dale una altura mínima para que no colapse */
+  display: flex; /* Ayuda a alinear contenido visible */
+  flex-direction: column; /* Apila contenido visible */
+}
+
+.quest-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Ligero zoom y elevación */
+  box-shadow: 0 8px 20px rgba(80, 160, 208, 0.4);
+}
+
+/* Contenido Visible Inicialmente */
+.quest-visible-content {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1; /* Permite que este div crezca si es necesario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+}
+
+.quest-thumbnail {
+  display: block;
+  width: 100%; /* Ocupa el ancho de la tarjeta */
+  max-height: 150px; /* Limita la altura de la miniatura */
+  object-fit: cover; /* Cubre el área sin distorsión */
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.quest-card h3 { /* Estilo para el título dentro de la tarjeta */
+  color: var(--sao-text-light);
+  margin-bottom: 5px;
+  font-size: 1.4em;
+}
+
+.quest-hover-hint {
+  font-size: 0.8em;
+  color: var(--sao-text-secondary);
+  font-style: italic;
+}
