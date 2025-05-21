@@ -124,8 +124,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(10, 15, 24, 0.95); /* Fondo oscuro casi opaco */
-  border: 1px solid var(--sao-accent-teal); /* Borde de acento al aparecer */
+  background-color: rgba(10, 15, 24, 0.95);
+  border: 1px solid var(--sao-accent-teal);
   display: flex;
   justify-content: center;
   align-items: center;
