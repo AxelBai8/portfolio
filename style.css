@@ -210,3 +210,112 @@ body {
   padding: 8px 15px;
   font-size: 0.9em;
 }
+
+
+#skills {
+    /* Asegúrate de que tenga suficiente altura si no es 100vh */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column; /* Para alinear el título y el área interactiva */
+    /* justify-content: center; // Esto centraría todo el contenido,
+                                 // pero queremos que el título esté arriba */
+    align-items: center;
+}
+
+.skills-interactive-area {
+    position: relative; /* Contexto para el posicionamiento absoluto de los skills */
+    width: 400px;      /* Ancho del área de órbita, ajusta según necesites */
+    height: 400px;     /* Alto del área de órbita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px; /* Espacio después del título "Skills" */
+}
+
+#skill-avatar-container {
+    position: relative; /* Para la pista si se posiciona absolutamente */
+    z-index: 10; /* Asegura que el avatar esté sobre los skills al inicio/fin */
+    text-align: center;
+}
+
+#skill-avatar {
+    width: 300px;        /* Tamaño del avatar, ajusta */
+    height: 300px;
+    border-radius: 50%; /* Avatar circular */
+    border: 3px solid var(--sao-accent-teal);
+    box-shadow: 0 0 15px var(--sao-accent-teal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skill-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--sao-accent-yellow);
+}
+
+.click-hint {
+    color: var(--sao-text-secondary);
+    font-size: 0.8em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+#orbiting-skills-container {
+    position: absolute; /* Contenedor de skills centrado en el área interactiva */
+    top: 50%;
+    left: 50%;
+    width: 1px; /* Solo para referencia, los items se posicionan desde este centro */
+    height: 1px;
+    /* Inicialmente oculto o invisible, JS manejará la visibilidad de los items */
+}
+
+#orbiting-skills-container.orbit-active .skill-item {
+    opacity: 1;
+    transform: var(--skill-transform-final); /* Variable CSS que definirá JS */
+}
+
+.skill-item {
+    position: absolute; /* Se posicionarán alrededor del centro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;  /* Ancho del item de skill, ajusta */
+    height: 80px; /* Alto del item de skill */
+    background-color: var(--sao-panel-bg);
+    border: 1px solid var(--sao-border);
+    border-radius: 50%; /* Hacerlos circulares o cuadrados redondeados */
+    /* Si quieres cuadrados redondeados: border-radius: 8px; */
+    color: var(--sao-text-light);
+    text-align: center;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(80, 160, 208, 0.5);
+    z-index: 5;
+
+    /* --- Estado Inicial (Antes de la animación) --- */
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5); /* Centrado en el origen y pequeño */
+    /* El primer translate(-50%, -50%) es para que el centro del item sea su origen de transformación */
+
+    /* --- Transición para la aparición y movimiento --- */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out;
+    /* cubic-bezier para un efecto de "rebote" o "elástico" */
+}
+
+.skill-item img {
+    width: 30px; /* Tamaño del icono, ajusta */
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.skill-item span {
+    font-size: 0.7em; /* Tamaño del texto de la skill */
+    display: block;
+}
+
+.skill-item:hover {
+    background-color: var(--sao-accent-teal);
+    color: var(--sao-dark-bg);
+    transform: var(--skill-transform-final) scale(1.15) !important; /* Mantener posición y escalar */
+    z-index: 15; /* Para que el hover esté encima de otros items */
+    box-shadow: 0 0 15px var(--sao-accent-teal);
+}
