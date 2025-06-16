@@ -63,16 +63,23 @@ body {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9)),
+  background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.9));
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
 }
 
 .hero-image-vertical {
-  width: 250px;
+   width: 250px;
   height: 400px;
   background: url('train.jpg') center center/cover no-repeat;
   border: 3px solid var(--sao-accent-teal);
   box-shadow: 0 0 20px var(--sao-accent-teal);
   border-radius: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* --- Estilos para Tarjetas de Proyecto (Quests) --- */
