@@ -219,6 +219,11 @@ body {
     padding-left: 30px; /* Indentación al pasar el mouse */
 }
 
+#content-area {
+    margin-left: 220px; /* Mismo valor que el ancho de #sao-menu */
+    /* Esto empuja todo el contenido hacia la derecha para que no quede debajo de la barra lateral */
+}
+
 
 /* Contenido dentro del Overlay */
 .media-content {
