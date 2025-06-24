@@ -174,9 +174,7 @@ body {
   transition-delay: 0s; /* Anula el delay de visibility */
 }
 
-/* ... (Estilos anteriores) ... */
 
-/* --- Barra de Navegación Lateral Fija --- */
 #sao-menu {
     position: fixed; /* Fija la barra en la pantalla */
     left: 0;
@@ -191,6 +189,24 @@ body {
     display: flex; /* Para centrar la lista de enlaces */
     justify-content: center;
     align-items: center;
+}
+
+#sao-menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* La lista ocupa todo el ancho de la nav */
+}
+
+#sao-menu ul li a {
+    display: block; /* Ocupa todo el espacio del li */
+    padding: 15px 20px;
+    color: var(--sao-text-secondary);
+    text-decoration: none;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(80, 160, 208, 0.1); /* Línea separadora sutil */
+    transition: all 0.3s ease;
 }
 
 
