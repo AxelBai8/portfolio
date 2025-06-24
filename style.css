@@ -174,6 +174,25 @@ body {
   transition-delay: 0s; /* Anula el delay de visibility */
 }
 
+/* ... (Estilos anteriores) ... */
+
+/* --- Barra de Navegación Lateral Fija --- */
+#sao-menu {
+    position: fixed; /* Fija la barra en la pantalla */
+    left: 0;
+    top: 0;
+    width: 220px; /* Ancho de la barra lateral, ajústalo si quieres */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: var(--sao-panel-bg);
+    border-right: 1px solid var(--sao-border);
+    backdrop-filter: blur(8px); /* Efecto vidrio */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+
+    display: flex; /* Para centrar la lista de enlaces */
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Contenido dentro del Overlay */
 .media-content {
