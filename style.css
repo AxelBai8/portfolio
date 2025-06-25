@@ -102,13 +102,13 @@ body {
 .quest-card {
   background-color: var(--sao-panel-bg);
   border: 1px solid var(--sao-border);
-  border-radius: 5px; /* Ajusta si prefieres bordes más nítidos */
-  position: relative; /* NECESARIO para el overlay absoluto */
-  overflow: hidden; /* Esconde partes del overlay que se salgan */
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 250px; /* Dale una altura mínima para que no colapse */
-  display: flex; /* Ayuda a alinear contenido visible */
-  flex-direction: column; /* Apila contenido visible */
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .quest-card:hover {
@@ -129,7 +129,7 @@ body {
 .quest-thumbnail {
   display: block;
   width: 100%; /* Ocupa el ancho de la tarjeta */
-  max-height: 150px; /* Limita la altura de la miniatura */
+  max-height: 300px; /* Limita la altura de la miniatura */
   object-fit: cover; /* Cubre el área sin distorsión */
   margin-bottom: 10px;
   border-radius: 3px;
@@ -287,110 +287,172 @@ body {
 }
 
 
+/* --- Sección de Skills con Carrusel --- */
 #skills {
-    /* Asegúrate de que tenga suficiente altura si no es 100vh */
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column; /* Para alinear el título y el área interactiva */
-    /* justify-content: center; // Esto centraría todo el contenido,
-                                 // pero queremos que el título esté arriba */
-    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
-.skills-interactive-area {
-    position: relative; /* Contexto para el posicionamiento absoluto de los skills */
-    width: 400px;      /* Ancho del área de órbita, ajusta según necesites */
-    height: 400px;     /* Alto del área de órbita */
+@keyframes scrollAnimation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Se mueve la mitad del ancho total */
+    }
+}
+
+.skills-carousel-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden; /* Oculta los logos que están fuera del contenedor */
+    position: relative;
+    /* Efecto de desvanecido en los bordes */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.skills-track {
+    display: flex; /* Pone los logos en una fila */
+    /* Ancho total = (ancho de un item) x (número total de items) */
+    width: calc(150px * 14); /* 150px por item, 7 logos x 2 = 14 items */
+    animation: scrollAnimation 40s linear infinite; /* La animación */
+}
+
+/* Pausa la animación al pasar el mouse */
+.skills-carousel-container:hover .skills-track {
+    animation-play-state: paused;
+}
+
+.skill-logo-item {
+    width: 150px; /* Ancho fijo para cada logo */
+    padding: 0 25px; /* Espaciado horizontal entre logos */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px; /* Espacio después del título "Skills" */
 }
 
-#skill-avatar-container {
-    position: relative; /* Para la pista si se posiciona absolutamente */
-    z-index: 10; /* Asegura que el avatar esté sobre los skills al inicio/fin */
-    text-align: center;
+.skill-logo-item img {
+    max-width: 100%;
+    max-height: 150px; /* Altura máxima para los logos */
+    filter: opacity(0.7); /* Logos en gris y algo transparentes */
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-#skill-avatar {
-    width: 300px;        /* Tamaño del avatar, ajusta */
-    height: 300px;
-    border-radius: 50%; /* Avatar circular */
-    border: 3px solid var(--sao-accent-teal);
-    box-shadow: 0 0 15px var(--sao-accent-teal);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#skill-avatar:hover {
+/* Efecto al pasar el mouse sobre un logo individual */
+.skill-logo-item:hover img {
+    filter: grayscale(0%) opacity(1);
     transform: scale(1.1);
-    box-shadow: 0 0 25px var(--sao-accent-yellow);
 }
 
-.click-hint {
-    color: var(--sao-text-secondary);
-    font-size: 0.8em;
-    margin-top: 10px;
-    font-style: italic;
+
+/* --- ESTILOS PARA RESPONSIVE EN MÓVILES --- */
+
+/* La media query se aplica en pantallas de 768px de ancho o menos */
+@media (max-width: 768px) {
+
+    /* --- 1. AJUSTES DEL MENÚ DE NAVEGACIÓN --- */
+
+    /* Ocultamos la barra lateral de escritorio */
+    #sao-menu {
+        width: 280px; /* Ancho del menú cuando se abra */
+        transform: translateX(-100%); /* La movemos fuera de la pantalla a la izquierda */
+        /* La transición ahora es para transform, no para width */
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Cuando el menú tenga la clase .open, se deslizará a la vista */
+    #sao-menu.menu-open {
+        transform: translateX(0);
+    }
+
+    /* Ya no necesitamos el :hover para expandir */
+    #sao-menu:hover {
+        width: 280px; /* Mantenemos el mismo ancho */
+    }
+    #sao-menu:hover .nav-text {
+        opacity: 1; /* El texto siempre será visible dentro del menú abierto */
+    }
+    .nav-text {
+        opacity: 1; /* Hacemos el texto visible por defecto en el menú móvil */
+    }
+
+    /* Mostramos el botón de hamburguesa, que estaba oculto en escritorio */
+    #mobile-menu-toggle {
+        display: flex; /* Lo hacemos visible */
+    }
+
+    /* Ajustamos el contenido principal */
+    #content-area {
+        margin-left: 0; /* Eliminamos el margen izquierdo */
+        padding: 0 15px; /* Añadimos un poco de padding a los lados */
+    }
+    #sao-menu:hover ~ #content-area {
+        margin-left: 0; /* Anulamos el efecto hover para el margen */
+    }
+
+
+    /* --- 2. AJUSTES DE TARJETAS Y LAYOUTS --- */
+
+    /* Hacemos que la tarjeta de proyecto móvil se apile verticalmente */
+    .quest-card-mobile {
+        grid-template-columns: 1fr; /* Una sola columna */
+        padding: 20px;
+    }
+
+    .project-mobile-gallery {
+        height: 350px; /* Reducimos un poco la altura de la galería */
+        margin-top: 20px;
+    }
+
+
+    /* --- 3. AJUSTE DE TIPOGRAFÍAS --- */
+    #hero h1 {
+        font-size: 2.8em; /* Reducimos el tamaño del título principal */
+    }
+    #hero h2 {
+        font-size: 1.5em;
+    }
+    .portfolio-section h2 {
+        font-size: 1.8em; /* Reducimos los títulos de las secciones */
+    }
+
+
+    /* --- 4. AJUSTE DEL CARRUSEL DE SKILLS --- */
+    .skill-logo-item {
+        width: 100px; /* Hacemos los logos un poco más pequeños */
+        padding: 0 15px;
+    }
+    .skills-track {
+        /* Recalculamos el ancho total de la pista de animación */
+        /* Ancho total = (nuevo ancho de item) x (número total de items) */
+        width: calc(100px * 14); /* 100px por item, 7 logos x 2 = 14 items */
+    }
 }
 
-#orbiting-skills-container {
-    position: absolute; /* Contenedor de skills centrado en el área interactiva */
-    top: 50%;
-    left: 50%;
-    width: 1px; /* Solo para referencia, los items se posicionan desde este centro */
-    height: 1px;
-    /* Inicialmente oculto o invisible, JS manejará la visibilidad de los items */
-}
 
-#orbiting-skills-container.orbit-active .skill-item {
-    opacity: 1;
-    transform: var(--skill-transform-final); /* Variable CSS que definirá JS */
-}
-
-.skill-item {
-    position: absolute; /* Se posicionarán alrededor del centro */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80px;  /* Ancho del item de skill, ajusta */
-    height: 80px; /* Alto del item de skill */
+/* --- Estilos para el botón de Hamburguesa (fuera de la media query) --- */
+#mobile-menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001; /* Por encima de la nav cerrada */
+    width: 40px;
+    height: 40px;
     background-color: var(--sao-panel-bg);
     border: 1px solid var(--sao-border);
-    border-radius: 50%; /* Hacerlos circulares o cuadrados redondeados */
-    /* Si quieres cuadrados redondeados: border-radius: 8px; */
-    color: var(--sao-text-light);
-    text-align: center;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(80, 160, 208, 0.5);
-    z-index: 5;
-
-    /* --- Estado Inicial (Antes de la animación) --- */
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5); /* Centrado en el origen y pequeño */
-    /* El primer translate(-50%, -50%) es para que el centro del item sea su origen de transformación */
-
-    /* --- Transición para la aparición y movimiento --- */
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease-out;
-    /* cubic-bezier para un efecto de "rebote" o "elástico" */
+    border-radius: 5px;
+    display: none; /* Oculto en escritorio por defecto */
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px;
+    cursor: pointer;
 }
 
-.skill-item img {
-    width: 30px; /* Tamaño del icono, ajusta */
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-.skill-item span {
-    font-size: 0.7em; /* Tamaño del texto de la skill */
-    display: block;
-}
-
-.skill-item:hover {
+.hamburger-line {
+    width: 100%;
+    height: 2px;
     background-color: var(--sao-accent-teal);
-    color: var(--sao-dark-bg);
-    transform: var(--skill-transform-final) scale(1.15) !important; /* Mantener posición y escalar */
-    z-index: 15; /* Para que el hover esté encima de otros items */
-    box-shadow: 0 0 15px var(--sao-accent-teal);
+    border-radius: 1px;
 }

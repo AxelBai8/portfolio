@@ -8,18 +8,26 @@
     </head>
 <body>
 
-    <div class="main-container">
+  <button id="mobile-menu-toggle" aria-label="Open Menu">
+    <div class="menu-overlay"></div>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+
 
         <nav id="sao-menu">
             <ul>
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#status">Status</a></li>
+                <li><a href="#profile">Profile</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            </nav>
+        </nav>
 
+            <div class="main-container">
         <main id="content-area">
 
             <header id="hero" class="portfolio-section">
@@ -27,14 +35,13 @@
               <div class="hero-text">
                 <h1>Axel Bailleres</h1>
                 <h2>Fullstack Developer</h2>
-                <p class="link-start-message">Link Start!</p>
               </div>
               <div class="hero-image-vertical"></div>
             </div>
           </header>
 
 
-            <section id="status" class="portfolio-section">
+            <section id="profile" class="portfolio-section">
                 <h2> About Me</h2>
                 <div class="window-style-container">
                     <p>I'm someone who thrives in a calm, even when tackling challenges.
@@ -48,48 +55,28 @@
 
             <section id="skills" class="portfolio-section">
                 <h2>Skills</h2>
-                <div class="skills-interactive-area">
-                    <div id="skill-avatar-container">
-                        <img src="Axelsak.jpg" alt="Developer Avatar - Click to show skills" id="skill-avatar">
-                    </div>
+                <div class="skills-carousel-container">
+                    <div class="skills-track">
+                        <div class="skill-logo-item"><img src="logos/Ruby.png" alt="Ruby on Rails"></div>
+                        <div class="skill-logo-item"><img src="logos/Java.png" alt="Java"></div>
+                        <div class="skill-logo-item"><img src="logos/flutter logo.svg" alt="Flutter"></div>
+                        <div class="skill-logo-item"><img src="logos/dart.png" alt="Dart"></div>
+                        <div class="skill-logo-item"><img src="logos/html.png" alt="HTML5"></div>
+                        <div class="skill-logo-item"><img src="logos/css.png" alt="CSS3"></div>
+                        <div class="skill-logo-item"><img src="logos/js.png" alt="JavaScript"></div>
 
-                    <div id="orbiting-skills-container">
-                        <div class="skill-item" data-skill="Ruby on Rails">
-                            <img src="logos/Ruby.png" alt="Ruby on Rails Icon">
-                            <span>Ruby on Rails</span>
-                        </div>
-                        <div class="skill-item" data-skill="Java">
-                            <img src="logos/Java.png" alt="Java Icon">
-                            <span>Java</span>
-                        </div>
-                        <div class="skill-item" data-skill="Flutter">
-                            <img src="logos/flutter logo.svg" alt="Flutter Icon">
-                            <span>Flutter</span>
-                        </div>
-                        <div class="skill-item" data-skill="Dart">
-                            <img src="logos/dart.png" alt="Dart Icon">
-                            <span>Dart</span>
-                        </div>
-                        <div class="skill-item" data-skill="HTML5">
-                            <img src="logos/html.png" alt="HTML5 Icon">
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item" data-skill="CSS3">
-                            <img src="logos/css.png" alt="CSS3 Icon">
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-item" data-skill="JavaScript">
-                            <img src="logos/js.png" alt="JavaScript Icon">
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item" data-skill="OracleDB">
-                            <img src="icons/oracle-icon.png" alt="Oracle DB Icon">
-                            <span>Oracle DB</span>
-                        </div>
-                        </div>
+                        <div class="skill-logo-item"><img src="logos/Ruby.png" alt="Ruby on Rails"></div>
+                        <div class="skill-logo-item"><img src="logos/Java.png" alt="Java"></div>
+                        <div class="skill-logo-item"><img src="logos/flutter logo.svg" alt="Flutter"></div>
+                        <div class="skill-logo-item"><img src="logos/dart.png" alt="Dart"></div>
+                        <div class="skill-logo-item"><img src="logos/html.png" alt="HTML5"></div>
+                        <div class="skill-logo-item"><img src="logos/css.png" alt="CSS3"></div>
+                        <div class="skill-logo-item"><img src="logos/js.png" alt="JavaScript"></div>
+                    </div>
                 </div>
             </section>
-            <section id="quests" class="portfolio-section">
+
+            <section id="projects" class="portfolio-section">
               <h2>Projects</h2>
               <div class="projects-grid">
 
@@ -137,6 +124,12 @@
                   </div>
                 </section>
 
+<section id="contact" class="portfolio-section">
+  <h2>Contact</h2>
+  <img src=""
+
+
+</section>
 
 </section>
 </body>
