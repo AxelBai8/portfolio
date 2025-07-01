@@ -346,6 +346,19 @@ body {
     transform: scale(1.1);
 }
 
+.contact-logo-item- {
+    width: 150px; /* Ancho fijo para cada logo */
+    padding: 0 25px; /* Espaciado horizontal entre logos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-logo-item img{
+  max-width: 100%;
+  max-height: 150px;
+  filter: opacity(0.7);
+  }
 
 /* --- ESTILOS PARA RESPONSIVE EN MÓVILES --- */
 
