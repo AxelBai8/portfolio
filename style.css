@@ -365,6 +365,11 @@ body {
   filter: opacity(0.7);
   }
 
+  .contact-logo-item:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
 /* --- ESTILOS PARA RESPONSIVE EN MÓVILES --- */
 
 /* La media query se aplica en pantallas de 768px de ancho o menos */
