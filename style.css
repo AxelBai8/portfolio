@@ -346,6 +346,11 @@ body {
     transform: scale(1.1);
 }
 
+.contact-track{
+  display: flex;
+  justify-content: center;
+}
+
 .contact-logo-item- {
     width: 150px; /* Ancho fijo para cada logo */
     padding: 0 25px; /* Espaciado horizontal entre logos */
