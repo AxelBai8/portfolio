@@ -91,6 +91,55 @@ body {
   margin-right: 100px;
 }
 
+/* Estilo base del texto */
+#cyberpunk-name {
+  font-family: 'Rajdhani', 'Courier New', monospace; /* Fuente tech */
+  font-weight: 700;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff;
+  position: relative;
+  display: inline-block;
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Subtítulo neon */
+.neon-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  color: #f0f;
+  text-shadow: 
+    0 0 5px #f0f,
+    0 0 10px #f0f;
+  animation: flicker 2s infinite alternate;
+}
+
+/* Efecto de parpadeo (flicker) típico del neon */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.7;
+  }
+}
+
+/* Efecto de "glitch" opcional */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
 /* --- Estilos para Tarjetas de Proyecto (Quests) --- */
 
 .projects-grid {
