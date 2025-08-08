@@ -333,12 +333,106 @@ body {
   gap: 10px; /* Espacio entre botones */
 }
 
-/* Ajustar botones dentro del overlay si es necesario */
-.media-content .sao-button {
-  padding: 8px 15px;
-  font-size: 0.9em;
+/* Estilo base para todos los botones SAO */
+.sao-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: 'Rajdhani', 'Arial Narrow', sans-serif; 
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    background: linear-gradient(145deg, #2a2e45, #1a1c2b);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 
+        0 4px 0 #0e0f1a,
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
 }
 
+
+.sao-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 #0e0f1a,
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #e0f7fa;
+}
+
+.sao-button:active {
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 0 #0e0f1a,
+        0 3px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+.sao-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(100, 220, 255, 0.3);
+    border-radius: 4px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.sao-button:hover::before {
+    border-color: rgba(100, 220, 255, 0.6);
+    box-shadow: 0 0 10px rgba(100, 220, 255, 0.4);
+}
+
+/* Estilo específico para el botón de volver */
+.back-button {
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #1e2138, #121426);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button::after {
+    content: '→';
+    display: inline-block;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover::after {
+    transform: rotate(180deg) translateX(-3px);
+}
+
+.sao-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(100, 220, 255, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+    z-index: -1;
+}
+
+.sao-button:hover::after {
+    transform: scale(1);
+}
 
 /* --- Sección de Skills con Carrusel --- */
 #skills {
