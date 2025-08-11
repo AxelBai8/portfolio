@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function clearNameIntervals() {
         nameAnimationIntervals.forEach(interval => clearInterval(interval));
+        
         nameAnimationIntervals = [];
       }
 
