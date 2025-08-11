@@ -153,11 +153,27 @@
                                 </div>
                             </a>
 
-                            <a href="axxelb14@gmail.com">
-                                <div class="contact-logo-item">
-                                    <img src="logos/gmail.png" alt="Gmail">
-                                </div>
-                            </a>
+                            <div class="contact-logo-item" id="gmail-icon">
+  <img src="logos/gmail.png" alt="Gmail" style="cursor: pointer;">
+</div>
+
+<!-- Formulario oculto por defecto -->
+<div id="gmail-form-container" style="display: none; margin-top: 20px;">
+  <form action="https://formsubmit.co/tu_correo@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <label>Tu Nombre:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Tu Correo:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Mensaje:</label><br>
+    <textarea name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
 
                         </div>
                     </div>

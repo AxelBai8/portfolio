@@ -91,5 +91,23 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error en animaciones de scroll:', error);
   }
 
-  
+    // =============================================
+  // Gmail Icon Click -> Show Email Form
+  // =============================================
+
+  try {
+    const gmailIcon = document.getElementById('gmail-icon');
+    const formContainer = document.getElementById('gmail-form-container');
+
+    if (gmailIcon && formContainer) {
+      gmailIcon.addEventListener('click', () => {
+        // Alterna visibilidad del formulario
+        const isVisible = formContainer.style.display === 'block';
+        formContainer.style.display = isVisible ? 'none' : 'block';
+      });
+    }
+  } catch (error) {
+    console.error('Error al mostrar el formulario de correo:', error);
+  }
+
 });
